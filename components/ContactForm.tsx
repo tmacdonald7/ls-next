@@ -1,16 +1,52 @@
 // components/ContactForm.tsx
+"use client";
+
+import { useMemo, useState } from "react";
+
 export function ContactForm() {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle"
+  );
+
+  const isBusy = status === "sending";
+
+  const actionUrl = useMemo(() => "/__forms.html", []);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+
+    try {
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+
+      const res = await fetch(actionUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      setStatus("sent");
+      // keep your existing behavior
+      window.location.assign("/?sent=1#contact");
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <form
       name="contact"
       method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      action="/?sent=1#contact"
+      onSubmit={handleSubmit}
       className="mt-8 grid gap-4"
     >
-      {/* Netlify required hidden inputs */}
+      {/* required for Netlify */}
       <input type="hidden" name="form-name" value="contact" />
+
+      {/* honeypot */}
       <p className="hidden">
         <label>
           Don’t fill this out: <input name="bot-field" />
@@ -60,15 +96,21 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="inline-flex items-center justify-center rounded-2xl border border-app bg-[rgb(var(--accent))] px-5 py-3 text-sm font-semibold text-[rgb(var(--bg))] hover:opacity-95 ring-soft"
+        disabled={isBusy}
+        className="inline-flex items-center justify-center rounded-2xl border border-app bg-[rgb(var(--accent))] px-5 py-3 text-sm font-semibold text-[rgb(var(--bg))] hover:opacity-95 disabled:opacity-60 ring-soft"
       >
-        Send
+        {isBusy ? "Sending…" : "Send"}
       </button>
 
-      {/* Optional: little note */}
-      <p className="text-xs text-muted">
-        Goes to <span className="font-medium">hello@lochsidestudio.com</span>.
-      </p>
+      {status === "error" ? (
+        <p className="text-xs text-muted">
+          Something went wrong. Please try again.
+        </p>
+      ) : (
+        <p className="text-xs text-muted">
+          Goes to <span className="font-medium">hello@lochsidestudio.com</span>.
+        </p>
+      )}
     </form>
   );
 }
