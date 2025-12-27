@@ -1,26 +1,107 @@
 @import "tailwindcss";
 
+/* Tailwind v4: explicitly tell it where to scan for class names */
+@source "./**/*.{js,ts,jsx,tsx,mdx}";
+@source "../components/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../lib/**/*.{js,ts,jsx,tsx,mdx}";
+
+
+/* Theme tokens via CSS variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: 248 246 242;        /* paper */
+  --surface: 255 255 255;   /* cards */
+  --text: 18 24 31;         /* ink */
+  --muted: 95 104 115;      /* secondary */
+  --border: 228 231 236;
+
+  --accent: 71 192 161;     /* mint */
+  --accent2: 255 160 182;   /* sakura */
+  --accent3: 175 166 255;   /* lavender */
+
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --ring: 0 0 0 4px rgba(71, 192, 161, 0.18);
+
+  --lochmod: 0; /* 0/1 helper */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme="night"] {
+  --bg: 12 14 18;
+  --surface: 18 21 27;
+  --text: 240 244 248;
+  --muted: 167 177 189;
+  --border: 42 48 58;
+
+  --accent: 118 209 255;    /* neon cyan */
+  --accent2: 255 120 199;   /* neon pink */
+  --accent3: 163 255 138;   /* neon green */
+
+  --shadow: 0 14px 40px rgba(0,0,0,0.55);
+  --ring: 0 0 0 4px rgba(118, 209, 255, 0.22);
+  --lochmod: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme="lochzilla"] {
+  --bg: 10 10 12;
+  --surface: 255 255 255;
+  --text: 10 10 12;
+  --muted: 70 70 78;
+  --border: 10 10 12;
+
+  --accent: 255 45 85;      /* kaiju alert */
+  --accent2: 255 199 0;     /* warning gold */
+  --accent3: 0 209 255;     /* shock cyan */
+
+  --shadow: 0 14px 40px rgba(0,0,0,0.35);
+  --ring: 0 0 0 4px rgba(255, 45, 85, 0.22);
+  --lochmod: 1;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(var(--bg));
+  color: rgb(var(--text));
+}
+
+/* tiny utility class so we can use theme vars without Tailwind config changes */
+.bg-app {
+  background: rgb(var(--bg));
+}
+.bg-surface {
+  background: rgb(var(--surface));
+}
+.text-muted {
+  color: rgb(var(--muted));
+}
+.border-app {
+  border-color: rgb(var(--border));
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow);
+}
+.ring-soft:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+/* Lochzilla subtle texture / watermark */
+.lochzilla-texture {
+  position: relative;
+}
+.lochzilla-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255,45,85,0.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 30%, rgba(255,199,0,0.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 60% 80%, rgba(0,209,255,0.9) 0 2px, transparent 3px);
+  background-size: 220px 220px;
+  mix-blend-mode: multiply;
 }
