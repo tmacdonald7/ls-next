@@ -1,46 +1,6 @@
 import Link from "next/link";
 import { ArrowDown, Mail } from "lucide-react";
-
-function Silhouette({
-  side,
-  label,
-}: {
-  side: "left" | "right";
-  label: string;
-}) {
-  const isLeft = side === "left";
-  return (
-    <div
-      className={[
-        "pointer-events-none absolute bottom-0 hidden w-[260px] select-none sm:block md:w-[320px]",
-        isLeft ? "-left-10 md:-left-16" : "-right-10 md:-right-16",
-      ].join(" ")}
-      aria-hidden="true"
-    >
-      <div className="relative">
-        <div
-          className={[
-            "h-[340px] w-full rounded-[3rem] border border-app bg-surface shadow-soft",
-            "opacity-70 blur-[0px]",
-          ].join(" ")}
-        />
-        <div className="absolute inset-0 flex items-end justify-center pb-6">
-          <div className="w-[72%] rounded-[2.5rem] border border-app bg-app px-4 py-3 text-center text-xs text-muted">
-            Serious anime silhouette placeholder:
-            <div className="mt-1 font-semibold text-[rgb(var(--text))]">
-              {label}
-            </div>
-          </div>
-        </div>
-
-        {/* “serious face” vibe: minimal cut lines */}
-        <div className="absolute left-1/2 top-16 h-32 w-32 -translate-x-1/2 rounded-full border border-app bg-app opacity-70" />
-        <div className="absolute left-1/2 top-28 h-2 w-14 -translate-x-1/2 rounded-full bg-[rgb(var(--text))] opacity-20" />
-        <div className="absolute left-1/2 top-36 h-2 w-14 -translate-x-1/2 rounded-full bg-[rgb(var(--text))] opacity-20" />
-      </div>
-    </div>
-  );
-}
+import Image from "next/image";
 
 function LochzillaMark() {
   return (
@@ -55,14 +15,88 @@ function LochzillaMark() {
   );
 }
 
+function HeroFigure({
+  src,
+  alt,
+  side,
+  size = "md",
+  scale = 1,
+}: {
+  src: string;
+  alt: string;
+  side: "left" | "right";
+  size?: "sm" | "md" | "lg";
+  scale?: number;
+}) {
+  const isLeft = side === "left";
+
+  const widthClass =
+    size === "sm"
+      ? "w-[220px] md:w-[290px]"
+      : size === "lg"
+        ? "w-[300px] md:w-[380px]"
+        : "w-[260px] md:w-[340px]";
+
+  const offsetClass = isLeft
+    ? "-left-24 md:-left-36"
+    : "-right-32 md:-right-44";
+
+  // Fixed frame height so both figures share the same “floor”
+  const frameHeightClass = "h-[340px] md:h-[420px]";
+
+  return (
+    <div
+      className={[
+        "pointer-events-none absolute hidden select-none sm:block bottom-0",
+        offsetClass,
+      ].join(" ")}
+      aria-hidden="true"
+    >
+      <div className={["relative", widthClass, frameHeightClass].join(" ")}>
+        {/* soft grounding shadow */}
+        <div className="absolute inset-x-6 bottom-4 h-6 rounded-full bg-black/10 blur-xl" />
+
+        {/* Bottom-anchored image, scaled from the bottom so feet stay aligned */}
+        <div
+          className="absolute inset-x-0 bottom-0 origin-bottom"
+          style={{ transform: `scale(${scale})` }}
+        >
+          <Image
+            src={src}
+            alt={alt}
+            width={420}
+            height={560}
+            priority
+            className={[
+              "h-auto w-full object-contain",
+              side === "right" ? "opacity-85" : "opacity-90",
+            ].join(" ")}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
         <div className="relative rounded-[2.5rem] border border-app bg-surface px-6 py-14 shadow-soft sm:px-10">
-          {/* silhouettes */}
-          <Silhouette side="left" label="Tom (placeholder)" />
-          <Silhouette side="right" label="Brett (placeholder)" />
+          {/* figures */}
+          <HeroFigure
+            src="/hero/thomas2.webp"
+            alt="Tom – Lochside Studio"
+            side="left"
+          />
+
+          <HeroFigure
+            src="/hero/brett.webp"
+            alt="Brett Richardson – Lochside Studio"
+            side="right"
+            size="sm"
+            scale={0.93} // makes him read a bit shorter, BUT keeps bottom aligned
+          />
 
           {/* center content */}
           <div className="relative mx-auto max-w-2xl text-center">
@@ -75,8 +109,8 @@ export function Hero() {
             </h1>
 
             <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
-              Built and used by operators to run real businesses—then refined into
-              software others can use.
+              Built and used by operators to run real businesses—then refined
+              into software others can use.
             </p>
 
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
