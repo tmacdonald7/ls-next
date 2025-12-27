@@ -1,15 +1,29 @@
-<html>
-  <head></head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Netlify Forms Detector</title>
+  </head>
   <body>
-    <!-- Deploy-time detection only -->
+    <!--
+      Deploy-time detection only.
+      This file exists so Netlify can detect the form during the build/deploy scan.
+      It is not meant to be visited by humans.
+    -->
     <form
       name="contact"
+      method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       hidden
     >
       <input type="hidden" name="form-name" value="contact" />
+
+      <!-- honeypot -->
       <input name="bot-field" type="text" />
+
+      <!-- fields -->
       <input name="name" type="text" />
       <input name="email" type="email" />
       <textarea name="message"></textarea>

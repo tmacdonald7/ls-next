@@ -5,20 +5,19 @@
 @source "../components/**/*.{js,ts,jsx,tsx,mdx}";
 @source "../lib/**/*.{js,ts,jsx,tsx,mdx}";
 
-
 /* Theme tokens via CSS variables */
 :root {
-  --bg: 248 246 242;        /* paper */
-  --surface: 255 255 255;   /* cards */
-  --text: 18 24 31;         /* ink */
-  --muted: 95 104 115;      /* secondary */
+  --bg: 248 246 242; /* paper */
+  --surface: 255 255 255; /* cards */
+  --text: 18 24 31; /* ink */
+  --muted: 95 104 115; /* secondary */
   --border: 228 231 236;
 
-  --accent: 71 192 161;     /* mint */
-  --accent2: 255 160 182;   /* sakura */
-  --accent3: 175 166 255;   /* lavender */
+  --accent: 71 192 161; /* mint */
+  --accent2: 255 160 182; /* sakura */
+  --accent3: 175 166 255; /* lavender */
 
-  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   --ring: 0 0 0 4px rgba(71, 192, 161, 0.18);
 
   --lochmod: 0; /* 0/1 helper */
@@ -31,27 +30,35 @@
   --muted: 167 177 189;
   --border: 42 48 58;
 
-  --accent: 118 209 255;    /* neon cyan */
-  --accent2: 255 120 199;   /* neon pink */
-  --accent3: 163 255 138;   /* neon green */
+  --accent: 118 209 255; /* neon cyan */
+  --accent2: 255 120 199; /* neon pink */
+  --accent3: 163 255 138; /* neon green */
 
-  --shadow: 0 14px 40px rgba(0,0,0,0.55);
+  --shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
   --ring: 0 0 0 4px rgba(118, 209, 255, 0.22);
   --lochmod: 0;
 }
 
+/*
+  Lochzilla:
+  Keep the kaiju accents, but inherit the readable foreground from Night Tokyo
+  so we don't get black-on-black text/icons.
+*/
 [data-theme="lochzilla"] {
   --bg: 10 10 12;
-  --surface: 255 255 255;
-  --text: 10 10 12;
-  --muted: 70 70 78;
-  --border: 10 10 12;
 
-  --accent: 255 45 85;      /* kaiju alert */
-  --accent2: 255 199 0;     /* warning gold */
-  --accent3: 0 209 255;     /* shock cyan */
+  /* Inherit Night Tokyo readability */
+  --surface: 18 21 27;
+  --text: 240 244 248;
+  --muted: 167 177 189;
+  --border: 42 48 58;
 
-  --shadow: 0 14px 40px rgba(0,0,0,0.35);
+  /* Lochzilla accents */
+  --accent: 255 45 85; /* kaiju alert */
+  --accent2: 255 199 0; /* warning gold */
+  --accent3: 0 209 255; /* shock cyan */
+
+  --shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
   --ring: 0 0 0 4px rgba(255, 45, 85, 0.22);
   --lochmod: 1;
 }
@@ -99,9 +106,21 @@ body {
   pointer-events: none;
   opacity: 0.06;
   background-image:
-    radial-gradient(circle at 20% 20%, rgba(255,45,85,0.9) 0 2px, transparent 3px),
-    radial-gradient(circle at 80% 30%, rgba(255,199,0,0.9) 0 2px, transparent 3px),
-    radial-gradient(circle at 60% 80%, rgba(0,209,255,0.9) 0 2px, transparent 3px);
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 45, 85, 0.9) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(255, 199, 0, 0.9) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 60% 80%,
+      rgba(0, 209, 255, 0.9) 0 2px,
+      transparent 3px
+    );
   background-size: 220px 220px;
   mix-blend-mode: multiply;
 }
