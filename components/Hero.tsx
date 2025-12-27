@@ -122,8 +122,8 @@ export function Hero() {
               </a>
 
               <Link
-                href="mailto:tmacdonald7@gmail.com"
-                className="ring-soft inline-flex items-center justify-center gap-2 rounded-2xl border border-app bg-app px-5 py-3 text-sm font-semibold hover:opacity-90"
+                href="#contact"
+                className="ring-soft inline-flex items-center justify-center gap-2 rounded-2xl border border-app bg-app px-5 py-3 text-sm font-semibold text-[rgb(var(--text))] hover:opacity-90"
               >
                 Contact <Mail className="h-4 w-4" />
               </Link>

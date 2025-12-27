@@ -5,6 +5,7 @@ import { TeamCard } from "@/components/TeamCard";
 import { AppCard } from "@/components/AppCard";
 import { Footer } from "@/components/Footer";
 import { apps, team } from "@/lib/data";
+import { ContactForm } from "@/components/ContactForm";
 
 export default function Page() {
   return (
@@ -55,10 +56,20 @@ export default function Page() {
                 Routing note (hub behavior)
               </div>
               <p className="mt-2 text-sm text-muted">
-                LochsideStudio.com routes visitors to product subdomains. Each app
-                can ship on its own cadence without turning this into a funnel.
+                LochsideStudio.com routes visitors to product subdomains. Each
+                app can ship on its own cadence without turning this into a
+                funnel.
               </p>
             </div>
+          </Section>
+
+          <Section
+            id="contact"
+            eyebrow="Contact"
+            title="Say hello"
+            sub-title="Quick note, quick reply. This is a studio, not a funnel."
+          >
+            <ContactForm />
           </Section>
 
           <Footer />

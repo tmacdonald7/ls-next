@@ -9,6 +9,7 @@ const NAV = [
   { href: "#about", label: "About" },
   { href: "#team", label: "Team" },
   { href: "#apps", label: "Apps" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -44,7 +45,9 @@ export function Header() {
           <span className="text-lg font-semibold tracking-tight">
             Lochside Studio
           </span>
-          <span className="ml-2 align-middle text-xs text-muted">(ls-next)</span>
+          <span className="ml-2 align-middle text-xs text-muted">
+            (ls-next)
+          </span>
         </Link>
 
         {/* Desktop nav */}
@@ -77,12 +80,7 @@ export function Header() {
       </div>
 
       {/* Mobile dropdown */}
-      <div
-        className={[
-          "md:hidden",
-          open ? "block" : "hidden",
-        ].join(" ")}
-      >
+      <div className={["md:hidden", open ? "block" : "hidden"].join(" ")}>
         {/* Backdrop */}
         <div
           className="fixed inset-0 z-40 bg-black/30"
