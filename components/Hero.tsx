@@ -116,7 +116,7 @@ export function Hero() {
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <a
                 href="#apps"
-                className="ring-soft inline-flex items-center justify-center gap-2 rounded-2xl border border-app bg-[rgb(var(--accent))] px-5 py-3 text-sm font-semibold text-black hover:opacity-95"
+                className="ring-soft inline-flex items-center justify-center gap-2 rounded-2xl border border-app bg-[rgb(var(--accent))] px-5 py-3 text-sm font-semibold text-[rgb(var(--accent-fg))] hover:opacity-95"
               >
                 View Apps <ArrowDown className="h-4 w-4" />
               </a>

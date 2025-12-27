@@ -97,7 +97,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isBusy}
-        className="inline-flex items-center justify-center rounded-2xl border border-app bg-[rgb(var(--accent))] px-5 py-3 text-sm font-semibold text-[rgb(var(--bg))] hover:opacity-95 disabled:opacity-60 ring-soft"
+        className="inline-flex items-center justify-center rounded-2xl border border-app bg-[rgb(var(--accent))] px-5 py-3 text-sm font-semibold text-[rgb(var(--accent-fg))] hover:opacity-95 disabled:opacity-60 ring-soft"
       >
         {isBusy ? "Sending…" : "Send"}
       </button>
