@@ -1,7 +1,18 @@
+// C:\Users\tmacd\Projects\ls-next\lib\data.ts
+
+export type SocialLinks = {
+  linkedin?: string;
+  x?: string;
+  youtube?: string;
+  instagram?: string;
+};
+
 export type TeamMember = {
   name: string;
   role: string;
   blurb: string;
+  imageSrc: string;
+  socials?: SocialLinks;
 };
 
 export type AppItem = {
@@ -13,16 +24,29 @@ export type AppItem = {
 
 export const team: TeamMember[] = [
   {
-    name: "Tom (Thomas Grant MacDonald)",
-    role: "Builder / Operator",
+    name: "Thomas Grant MacDonald",
+    role: "Product Lead",
     blurb:
-      "Builds internal tools to run real businesses—then turns the best ones into products.",
+      "Builds internal-first tools for operators. Focused on clarity, leverage, and shipping software that actually gets used.",
+    imageSrc: "/team/thomas.webp",
+    socials: {
+      linkedin: "https://www.linkedin.com/in/thomasgrantmacdonald/",
+      // Update these to your actual profiles as needed:
+      x: "https://x.com/@thomasgrantmacd",
+      youtube: "https://www.youtube.com/@thomasgrantmacdonald",
+      instagram: "https://www.instagram.com/thomasgrantmacdonald",
+    },
   },
   {
     name: "Brett Richardson",
-    role: "Front-end UI/UX Designer",
+    role: "UI / UX",
     blurb:
-      "Designs clean, friendly interfaces that feel playful without losing operator-grade clarity.",
+      "Designs and refines systems with an eye for usability, structure, and long-term maintainability.",
+    imageSrc: "/team/placeholder.webp",
+    socials: {
+      // Add Brett’s links when you have them
+      linkedin: "https://www.linkedin.com/",
+    },
   },
 ];
 

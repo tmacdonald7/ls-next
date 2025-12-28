@@ -45,9 +45,6 @@ export function Header() {
           <span className="text-lg font-semibold tracking-tight">
             Lochside Studio
           </span>
-          <span className="ml-2 align-middle text-xs text-muted">
-            (ls-next)
-          </span>
         </Link>
 
         {/* Desktop nav */}
