@@ -101,7 +101,7 @@ export function Hero() {
           {/* center content */}
           <div className="relative mx-auto max-w-2xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-app bg-app px-3 py-1 text-xs text-muted">
-              Lochside Studio / internal-first product studio
+              Lochside Studio / Internal-First Product Studio
             </div>
 
             <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">
