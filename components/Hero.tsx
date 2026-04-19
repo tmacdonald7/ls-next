@@ -9,7 +9,7 @@ function LochzillaMark() {
       aria-hidden="true"
     >
       <div className="rounded-2xl border border-app bg-surface px-3 py-2 text-xs text-muted shadow-soft">
-        🦖 <span className="ml-1">Lochzilla</span>
+        Lochzilla
       </div>
     </div>
   );
@@ -41,22 +41,20 @@ function HeroFigure({
     ? "-left-24 md:-left-36"
     : "-right-32 md:-right-44";
 
-  // Fixed frame height so both figures share the same “floor”
+  // Fixed frame height so both figures share the same floor line.
   const frameHeightClass = "h-[340px] md:h-[420px]";
 
   return (
     <div
       className={[
-        "pointer-events-none absolute hidden select-none sm:block bottom-0",
+        "pointer-events-none absolute bottom-0 hidden select-none sm:block",
         offsetClass,
       ].join(" ")}
       aria-hidden="true"
     >
       <div className={["relative", widthClass, frameHeightClass].join(" ")}>
-        {/* soft grounding shadow */}
         <div className="absolute inset-x-6 bottom-4 h-6 rounded-full bg-black/10 blur-xl" />
 
-        {/* Bottom-anchored image, scaled from the bottom so feet stay aligned */}
         <div
           className="absolute inset-x-0 bottom-0 origin-bottom"
           style={{ transform: `scale(${scale})` }}
@@ -83,34 +81,33 @@ export function Hero() {
     <section className="relative overflow-hidden">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
         <div className="relative rounded-[2.5rem] border border-app bg-surface px-6 py-14 shadow-soft sm:px-10">
-          {/* figures */}
           <HeroFigure
             src="/hero/thomas2.webp"
-            alt="Tom – Lochside Studio"
+            alt="Tom from Lochside Studio"
             side="left"
           />
 
           <HeroFigure
             src="/hero/brett.webp"
-            alt="Brett Richardson – Lochside Studio"
+            alt="Brett Richardson from Lochside Studio"
             side="right"
             size="sm"
-            scale={0.93} // makes him read a bit shorter, BUT keeps bottom aligned
+            scale={0.93}
           />
 
-          {/* center content */}
           <div className="relative mx-auto max-w-2xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-app bg-app px-3 py-1 text-xs text-muted">
               Lochside Studio / Internal-First Product Studio
             </div>
 
             <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">
-              We build tools that give humans leverage in an AI world.
+              We build tools for the moments when typing is too slow.
             </h1>
 
             <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
-              Built and used by operators to run real businesses—then refined
-              into software others can use.
+              Built and used by operators to run real businesses, then refined
+              into software that removes friction, speeds up execution, and keeps
+              humans in flow.
             </p>
 
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
@@ -130,11 +127,10 @@ export function Hero() {
             </div>
 
             <p className="mt-6 text-xs text-muted">
-              This is a hub—not a funnel. Taste, clarity, execution.
+              This is a hub, not a funnel. Taste, clarity, execution.
             </p>
           </div>
 
-          {/* small decorative mascot */}
           <LochzillaMark />
         </div>
       </div>

@@ -22,14 +22,23 @@ export default function Page() {
                 <AppCard key={a.name} app={a} />
               ))}
             </div>
+
+            <div className="mt-8 rounded-2xl border border-app bg-surface p-6 shadow-soft">
+              <div className="text-sm font-semibold">Routing note (hub behavior)</div>
+              <p className="mt-2 text-sm text-muted">
+                LochsideStudio.com routes visitors to product subdomains. Each app
+                can ship on its own cadence without turning this into a funnel or
+                burying the products that solve immediate workflow pain.
+              </p>
+            </div>
           </Section>
 
           <Section id="about" title="Studio Focus" eyebrow="Studio">
             <div className="grid gap-4 sm:grid-cols-3">
               {[
-                "Build focused tools that increase human leverage",
-                "Design for speed, clarity, and real-world execution",
-                "Ship early, refine through real use",
+                "Build focused tools that remove operator friction",
+                "Design for speed when typing, clicking, and context switching get in the way",
+                "Ship early, refine through real use in real businesses",
               ].map((t) => (
                 <div
                   key={t}

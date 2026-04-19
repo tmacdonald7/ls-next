@@ -52,6 +52,13 @@ export const team: TeamMember[] = [
 
 export const apps: AppItem[] = [
   {
+    name: "Codex Voice Pad",
+    description:
+      "Voice input for Codex in VS Code so you can speak prompts, skip the typing bottleneck, and keep moving.",
+    href: "/codex-voicepad",
+    badge: "Featured",
+  },
+  {
     name: "Authority",
     description:
       "The fastest way for real humans to create professional, on-camera authority content.",
