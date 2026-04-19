@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import type { CSSProperties } from "react";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 
 const quickStart = [
   "Install Codex Voice Pad",
@@ -55,69 +56,52 @@ export const metadata: Metadata = {
 
 export default function CodexVoicePadPage() {
   return (
-    <main
-      className="min-h-screen bg-app text-[rgb(var(--text))]"
-      style={
-        {
-          "--bg": "12 14 18",
-          "--surface": "18 21 27",
-          "--text": "240 244 248",
-          "--muted": "167 177 189",
-          "--border": "42 48 58",
-          "--accent": "71 192 161",
-          "--accent2": "255 160 182",
-          "--accent3": "175 166 255",
-          "--shadow": "0 24px 80px rgba(0,0,0,0.38)",
-          "--ring": "0 0 0 4px rgba(71, 192, 161, 0.18)",
-        } as CSSProperties
-      }
-    >
+    <main id="top" className="min-h-screen bg-app text-[rgb(var(--text))]">
       <div className="relative overflow-hidden">
+        <Header />
+
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-0 top-0 h-[30rem] w-[30rem] rounded-full bg-[rgb(var(--accent))]/18 blur-3xl" />
-          <div className="absolute right-[-8rem] top-20 h-[24rem] w-[24rem] rounded-full bg-[rgb(var(--accent3))]/16 blur-3xl" />
-          <div className="absolute bottom-10 left-1/3 h-[18rem] w-[18rem] rounded-full bg-[rgb(var(--accent2))]/10 blur-3xl" />
+          <div className="absolute left-0 top-0 h-[30rem] w-[30rem] rounded-full bg-[rgb(var(--accent))]/12 blur-3xl" />
+          <div className="absolute right-[-8rem] top-20 h-[24rem] w-[24rem] rounded-full bg-[rgb(var(--accent3))]/12 blur-3xl" />
+          <div className="absolute bottom-10 left-1/3 h-[18rem] w-[18rem] rounded-full bg-[rgb(var(--accent))]/10 blur-3xl" />
           <div
-            className="absolute inset-0 opacity-[0.08]"
+            className="absolute inset-0 opacity-[0.05]"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
+                "linear-gradient(rgba(18,24,31,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(18,24,31,0.06) 1px, transparent 1px)",
               backgroundSize: "64px 64px",
             }}
           />
         </div>
 
-        <section className="relative mx-auto max-w-6xl px-4 pb-14 pt-5 sm:px-6 sm:pb-20 sm:pt-6">
+        <section
+          id="apps"
+          className="relative mx-auto max-w-6xl px-4 pb-14 pt-5 sm:px-6 sm:pb-20 sm:pt-6"
+        >
           <div className="p-2 sm:p-4">
             <div className="mx-auto mt-5 max-w-5xl">
-              <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-black/15 px-4 py-2.5">
-                <Image
-                  src="/logo/codex-voicepad.svg"
-                  alt="Codex Voice Pad mark"
-                  width={34}
-                  height={34}
-                  className="h-8.5 w-8.5"
-                />
-                <span className="text-sm font-medium tracking-[0.16em] text-slate-300 uppercase">
-                  Codex Voice Pad
-                </span>
-              </div>
-
-              <h1 className="mt-6 max-w-4xl text-5xl font-semibold tracking-[-0.05em] text-white sm:text-7xl lg:text-[6rem]">
+              <h1 className="max-w-4xl text-5xl font-semibold tracking-[-0.05em] sm:text-7xl lg:text-[6rem]">
                 <span className="block">Typing is slow.</span>
-                <span className="mt-1 block text-[rgb(var(--accent2))]">
+                <span className="mt-1 block text-[rgb(var(--accent))]">
                   Speak to code instead.
                 </span>
               </h1>
-              <p className="mt-5 max-w-[46rem] text-lg leading-8 text-slate-200 sm:text-xl">
-                Voice input for Codex inside VS Code. Record locally, transcribe
-                fast, and route to chat, the CLI, or your editor with optional
-                auto-submit so the thought-to-execution loop stays faster than
-                typing.
-              </p>
+              <div className="text-muted mt-5 max-w-[46rem]">
+                <p className="text-lg leading-8 sm:text-xl">
+                  <strong className="font-semibold text-[rgb(var(--text))]">
+                    Codex Voice Pad
+                  </strong>{" "}
+                  enables voice input for Codex inside VS Code.
+                </p>
+                <p className="mt-2 text-base leading-7 sm:text-lg">
+                  Record locally, transcribe fast, and route to chat, the CLI,
+                  or your editor with optional auto-submit so the
+                  thought-to-execution loop stays faster than typing.
+                </p>
+              </div>
 
               <div className="mt-6 grid gap-3 text-left sm:grid-cols-2">
-                <div className="rounded-[1.25rem] border border-white/10 bg-black/15 p-4">
+                <div className="rounded-[1.25rem] border border-app bg-surface p-4 shadow-soft">
                   <p className="text-[10px] uppercase tracking-[0.28em] text-[rgb(var(--accent2))]">
                     Problem
                   </p>
@@ -128,7 +112,7 @@ export default function CodexVoicePadPage() {
                   </p>
                 </div>
 
-                <div className="rounded-[1.25rem] border border-white/10 bg-black/15 p-4">
+                <div className="rounded-[1.25rem] border border-app bg-surface p-4 shadow-soft">
                   <p className="text-[10px] uppercase tracking-[0.28em] text-[rgb(var(--accent))]">
                     Solution
                   </p>
@@ -144,7 +128,7 @@ export default function CodexVoicePadPage() {
                   href={repoUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="ring-soft inline-flex min-w-56 items-center justify-center rounded-full bg-[rgb(var(--accent2))] px-7 py-4 text-base font-semibold text-black shadow-[0_14px_40px_rgba(255,160,182,0.3)] transition hover:translate-y-[-1px] hover:opacity-95"
+                  className="ring-soft inline-flex min-w-56 items-center justify-center rounded-full bg-[rgb(var(--accent))] px-7 py-4 text-base font-semibold text-[rgb(var(--accent-fg))] shadow-soft transition hover:translate-y-[-1px] hover:opacity-95"
                 >
                   Get the Codex Voice Pad Extension
                 </a>
@@ -152,14 +136,14 @@ export default function CodexVoicePadPage() {
                   href={repoUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="ring-soft inline-flex min-w-56 items-center justify-center rounded-full border border-app px-7 py-4 text-base font-semibold text-white transition hover:bg-white/5"
+                  className="ring-soft inline-flex min-w-56 items-center justify-center rounded-full border border-app bg-surface px-7 py-4 text-base font-semibold transition hover:border-[rgb(var(--accent))] hover:bg-app hover:text-[rgb(var(--text))] hover:shadow-soft"
                 >
                   View on GitHub
                 </a>
               </div>
 
-              <div className="mt-6 max-w-4xl rounded-[1.5rem] border border-white/10 bg-black/15 px-5 py-5 text-left shadow-[0_18px_60px_rgba(0,0,0,0.2)]">
-                <p className="text-[10px] uppercase tracking-[0.28em] text-[rgb(var(--accent2))]">
+              <div className="mt-6 max-w-4xl rounded-[1.5rem] border border-app bg-surface px-5 py-5 text-left shadow-soft">
+                <p className="text-[10px] uppercase tracking-[0.28em] text-[rgb(var(--accent))]">
                   Why This Matters
                 </p>
                 <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -168,20 +152,16 @@ export default function CodexVoicePadPage() {
                     alt="Peter Steinberger"
                     width={72}
                     height={72}
-                    className="h-[72px] w-[72px] rounded-2xl border border-white/10 object-cover"
+                    className="h-[72px] w-[72px] rounded-2xl border border-app object-cover"
                     loading="lazy"
                   />
                   <div className="min-w-0">
-                    <blockquote className="text-lg font-semibold tracking-tight text-white sm:text-xl">
+                    <blockquote className="text-lg font-semibold tracking-tight sm:text-xl">
                       &ldquo;I don&apos;t write, I talk.&rdquo;
                     </blockquote>
                     <p className="mt-2 text-sm leading-6 text-muted">
-                      <span className="font-medium text-slate-200">
-                        Peter Steinberger
-                      </span>{" "}
-                      <span className="text-slate-300">
-                        creator of OpenClaw
-                      </span>
+                      <span className="font-medium">Peter Steinberger</span>{" "}
+                      <span>creator of OpenClaw</span>
                       , the viral open-source AI agent that drew 2 million
                       visitors in a week and 100,000+ GitHub stars.
                     </p>
@@ -191,10 +171,10 @@ export default function CodexVoicePadPage() {
             </div>
 
             <div className="mx-auto mt-10 max-w-5xl">
-              <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#06080b] shadow-[0_30px_90px_rgba(0,0,0,0.45)]">
-                <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 text-xs text-muted">
+              <div className="overflow-hidden rounded-[1.75rem] border border-app bg-surface shadow-soft">
+                <div className="flex items-center justify-between border-b border-app px-4 py-3 text-xs text-muted">
                   <div className="flex items-center gap-2">
-                    <span className="h-2.5 w-2.5 rounded-full bg-[rgb(var(--accent2))]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[rgb(var(--accent))]" />
                     <span className="h-2.5 w-2.5 rounded-full bg-[rgb(var(--accent))]" />
                     <span className="h-2.5 w-2.5 rounded-full bg-[rgb(var(--accent3))]" />
                   </div>
@@ -202,7 +182,7 @@ export default function CodexVoicePadPage() {
                 </div>
 
                 <video
-                  className="block aspect-video w-full bg-black"
+                  className="block aspect-video w-full bg-app"
                   controls
                   preload="metadata"
                   playsInline
@@ -221,7 +201,7 @@ export default function CodexVoicePadPage() {
                 ].map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-slate-200"
+                    className="rounded-full border border-app bg-surface px-3 py-1.5 text-xs shadow-soft"
                   >
                     {item}
                   </span>
@@ -231,16 +211,19 @@ export default function CodexVoicePadPage() {
           </div>
         </section>
 
-        <section className="relative mx-auto grid max-w-6xl gap-6 px-4 pb-24 sm:px-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <section
+          id="about"
+          className="relative mx-auto grid max-w-6xl gap-6 px-4 pb-24 sm:px-6 lg:grid-cols-[1.1fr_0.9fr]"
+        >
           <div className="rounded-[1.75rem] border border-app bg-surface p-6 shadow-soft backdrop-blur sm:p-8">
-            <div className="text-sm uppercase tracking-[0.28em] text-[rgb(var(--accent2))]">
+            <div className="text-sm uppercase tracking-[0.28em] text-[rgb(var(--accent))]">
               Quick Start
             </div>
-            <div className="mt-5 overflow-hidden rounded-2xl border border-white/10 bg-[#0a0d11]">
-              <div className="border-b border-white/10 px-4 py-3 text-xs text-muted">
+            <div className="mt-5 overflow-hidden rounded-2xl border border-app bg-app">
+              <div className="border-b border-app px-4 py-3 text-xs text-muted">
                 voicepad.runbook
               </div>
-              <ol className="space-y-3 px-4 py-5 font-mono text-sm text-slate-200">
+              <ol className="space-y-3 px-4 py-5 font-mono text-sm">
                 {quickStart.map((step, index) => (
                   <li key={step} className="flex gap-3">
                     <span className="text-[rgb(var(--accent))]">
@@ -253,7 +236,10 @@ export default function CodexVoicePadPage() {
             </div>
           </div>
 
-          <div className="rounded-[1.75rem] border border-app bg-surface p-6 shadow-soft backdrop-blur sm:p-8">
+          <div
+            id="team"
+            className="rounded-[1.75rem] border border-app bg-surface p-6 shadow-soft backdrop-blur sm:p-8"
+          >
             <div className="text-sm uppercase tracking-[0.28em] text-[rgb(var(--accent3))]">
               Works With
             </div>
@@ -261,7 +247,7 @@ export default function CodexVoicePadPage() {
               {worksWith.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-100"
+                  className="rounded-full border border-app bg-app px-4 py-2 text-sm"
                 >
                   {item}
                 </span>
@@ -291,7 +277,7 @@ export default function CodexVoicePadPage() {
                 <p className="text-sm uppercase tracking-[0.32em] text-[rgb(var(--accent))]">
                   What It Does
                 </p>
-                <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
                   Voice input built around a Codex workflow
                 </h2>
               </div>
@@ -301,12 +287,10 @@ export default function CodexVoicePadPage() {
               {features.map((feature, index) => (
                 <article
                   key={feature.title}
-                  className="rounded-[1.5rem] border border-white/10 bg-black/15 p-5"
+                  className="rounded-[1.5rem] border border-app bg-app p-5"
                 >
                   <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-lg font-semibold text-white">
-                      {feature.title}
-                    </h3>
+                    <h3 className="text-lg font-semibold">{feature.title}</h3>
                     <span className="text-xs uppercase tracking-[0.24em] text-muted">
                       0{index + 1}
                     </span>
@@ -320,9 +304,12 @@ export default function CodexVoicePadPage() {
           </div>
         </section>
 
-        <section className="relative mx-auto max-w-4xl px-4 pb-24 text-center sm:px-6">
+        <section
+          id="contact"
+          className="relative mx-auto max-w-4xl px-4 pb-24 text-center sm:px-6"
+        >
           <div className="rounded-[2rem] border border-app bg-surface px-6 py-12 shadow-soft backdrop-blur sm:px-8">
-            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-4xl">
               Speak the prompt. Route it. Keep coding.
             </h2>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -330,7 +317,7 @@ export default function CodexVoicePadPage() {
                 href={repoUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="ring-soft inline-flex min-w-48 items-center justify-center rounded-full bg-[rgb(var(--accent))] px-6 py-3 text-sm font-semibold text-black transition hover:opacity-95"
+                className="ring-soft inline-flex min-w-48 items-center justify-center rounded-full bg-[rgb(var(--accent))] px-6 py-3 text-sm font-semibold text-[rgb(var(--accent-fg))] transition hover:opacity-95"
               >
                 Get the Codex Voice Pad Extension
               </a>
@@ -338,7 +325,7 @@ export default function CodexVoicePadPage() {
                 href={repoUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="ring-soft inline-flex min-w-48 items-center justify-center rounded-full border border-app px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/5"
+                className="ring-soft inline-flex min-w-48 items-center justify-center rounded-full border border-app bg-app px-6 py-3 text-sm font-semibold transition hover:border-[rgb(var(--accent))] hover:bg-surface hover:text-[rgb(var(--text))] hover:shadow-soft"
               >
                 View on GitHub
               </a>
@@ -346,39 +333,7 @@ export default function CodexVoicePadPage() {
           </div>
         </section>
 
-        <footer className="relative border-t border-white/10 px-4 py-8 sm:px-6">
-          <div className="mx-auto flex max-w-6xl flex-col gap-4 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-3">
-              <Image
-                src="/logo/codex-voicepad.svg"
-                alt=""
-                width={28}
-                height={28}
-                aria-hidden="true"
-                className="h-7 w-7"
-              />
-              <p>
-                Built by{" "}
-                <a className="text-slate-200 hover:text-white" href="/">
-                  Lochside Studio
-                </a>
-              </p>
-            </div>
-            <div className="flex items-center gap-4">
-              <a
-                className="ring-soft rounded-lg hover:text-white"
-                href={repoUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub
-              </a>
-              <a className="ring-soft rounded-lg hover:text-white" href="#top">
-                Back to top
-              </a>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </main>
   );

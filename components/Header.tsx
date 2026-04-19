@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
@@ -14,6 +15,12 @@ const NAV = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  function resolveHref(hashHref: string) {
+    return isHome ? hashHref : `/${hashHref}`;
+  }
 
   // Close on Escape
   useEffect(() => {
@@ -38,7 +45,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-app bg-app/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Link
-          href="#top"
+          href={isHome ? "#top" : "/"}
           className="ring-soft rounded-lg px-2 py-1"
           onClick={() => setOpen(false)}
         >
@@ -50,13 +57,13 @@ export function Header() {
         {/* Desktop nav */}
         <nav className="hidden items-center gap-6 md:flex">
           {NAV.map((n) => (
-            <a
+            <Link
               key={n.href}
-              href={n.href}
+              href={resolveHref(n.href)}
               className="ring-soft rounded-lg text-sm text-muted hover:text-[rgb(var(--text))]"
             >
               {n.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -91,23 +98,23 @@ export function Header() {
             <div className="bg-surface shadow-soft rounded-2xl border border-app p-3">
               <div className="flex flex-col">
                 {NAV.map((n) => (
-                  <a
+                  <Link
                     key={n.href}
-                    href={n.href}
+                    href={resolveHref(n.href)}
                     onClick={() => setOpen(false)}
                     className="ring-soft rounded-xl px-3 py-3 text-sm font-medium text-[rgb(var(--text))] hover:bg-black/5"
                   >
                     {n.label}
-                  </a>
+                  </Link>
                 ))}
 
                 <div className="mt-2 border-t border-app pt-2">
                   <Link
-                    href="mailto:tmacdonald7@gmail.com"
+                    href="/"
                     onClick={() => setOpen(false)}
                     className="ring-soft block rounded-xl px-3 py-3 text-sm font-medium text-muted hover:bg-black/5"
                   >
-                    Contact
+                    Home
                   </Link>
                 </div>
               </div>

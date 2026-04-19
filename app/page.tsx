@@ -6,6 +6,14 @@ import { AppCard } from "@/components/AppCard";
 import { Footer } from "@/components/Footer";
 import { apps, team } from "@/lib/data";
 import { ContactForm } from "@/components/ContactForm";
+import {
+  Bot,
+  BrainCircuit,
+  MessageSquareText,
+  ScanSearch,
+  Sparkles,
+  Workflow,
+} from "lucide-react";
 
 export default function Page() {
   return (
@@ -16,44 +24,79 @@ export default function Page() {
           <Header />
           <Hero />
 
-          <Section id="apps" title="Apps" eyebrow="Products">
+          <Section
+            id="apps"
+            title="Current Products"
+            eyebrow="Products"
+          >
             <div className="grid gap-4 sm:grid-cols-2">
               {apps.map((a) => (
                 <AppCard key={a.name} app={a} />
               ))}
             </div>
-
-            <div className="mt-8 rounded-2xl border border-app bg-surface p-6 shadow-soft">
-              <div className="text-sm font-semibold">Routing note (hub behavior)</div>
-              <p className="mt-2 text-sm text-muted">
-                LochsideStudio.com routes visitors to product subdomains. Each app
-                can ship on its own cadence without turning this into a funnel or
-                burying the products that solve immediate workflow pain.
-              </p>
-            </div>
           </Section>
 
-          <Section id="about" title="Studio Focus" eyebrow="Studio">
-            <div className="grid gap-4 sm:grid-cols-3">
+          <Section
+            id="about"
+            title="How We Build Software That Actually Gets Used"
+            eyebrow="Studio Focus"
+          >
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                "Build focused tools that remove operator friction",
-                "Design for speed when typing, clicking, and context switching get in the way",
-                "Ship early, refine through real use in real businesses",
-              ].map((t) => (
+                {
+                  icon: BrainCircuit,
+                  title: "Internal Need Comes First",
+                  body: "We do not start with ideas for a pitch deck. We build tools because our own businesses need them, then keep the ones that prove their value in daily use.",
+                },
+                {
+                  icon: Workflow,
+                  title: "AI Should Reduce Operator Work",
+                  body: "Our products are built to work with modern AI systems in practical workflows, whether that means faster prompting, cleaner execution, or less repetitive manual effort.",
+                },
+                {
+                  icon: ScanSearch,
+                  title: "Real Usage Decides What Ships",
+                  body: "We test software under real operating conditions, find the friction, and keep refining until it earns a place in the stack instead of becoming another abandoned tool.",
+                },
+                {
+                  icon: MessageSquareText,
+                  title: "Interfaces Should Match The Work",
+                  body: "Sometimes the right interface is a VS Code extension. Sometimes it is Telegram. We choose the surface that gets the operator to execution fastest.",
+                },
+                {
+                  icon: Bot,
+                  title: "Agents Need Better Tooling Around Them",
+                  body: "We are not trying to replace good models. We build the surrounding software that makes agents easier to direct, monitor, and use inside actual workflows.",
+                },
+                {
+                  icon: Sparkles,
+                  title: "Scope Stays Tight On Purpose",
+                  body: "Each tool solves a specific bottleneck clearly enough to earn adoption. We would rather ship a sharp internal advantage than a broad, vague platform.",
+                },
+              ].map((item) => (
                 <div
-                  key={t}
-                  className="bg-surface shadow-soft rounded-2xl border border-app p-6"
+                  key={item.title}
+                  className="rounded-2xl border border-app bg-app/35 p-6 backdrop-blur-sm"
                 >
-                  <div className="text-sm font-semibold">{t}</div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-app bg-surface text-[rgb(var(--accent))]">
+                      <item.icon className="h-5 w-5" />
+                    </div>
+                    <div className="text-sm font-semibold">{item.title}</div>
+                  </div>
                   <div className="mt-2 text-sm text-muted">
-                    Practical defaults. Minimal overhead. Real operators.
+                    {item.body}
                   </div>
                 </div>
               ))}
             </div>
           </Section>
 
-          <Section id="team" title="Team" eyebrow="People">
+          <Section
+            id="team"
+            title="The Operators Behind the Products"
+            eyebrow="Team Leadership"
+          >
             <div className="grid gap-4 sm:grid-cols-2">
               {team.map((m) => (
                 <TeamCard key={m.name} member={m} />

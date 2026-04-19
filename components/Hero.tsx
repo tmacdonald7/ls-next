@@ -101,34 +101,30 @@ export function Hero() {
             </div>
 
             <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">
-              We build tools for the moments when typing is too slow.
+              We build internal-first tools that help businesses leverage AI.
             </h1>
 
             <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
-              Built and used by operators to run real businesses, then refined
-              into software that removes friction, speeds up execution, and keeps
-              humans in flow.
+              Every product starts as software we need inside our own companies,
+              then gets refined into focused tools that remove friction, speed
+              up execution, and work with modern AI systems in the real world.
             </p>
 
-            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-stretch">
               <a
                 href="#apps"
-                className="ring-soft inline-flex items-center justify-center gap-2 rounded-2xl border border-app bg-[rgb(var(--accent))] px-5 py-3 text-sm font-semibold text-[rgb(var(--accent-fg))] hover:opacity-95"
+                className="ring-soft inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-app bg-[rgb(var(--accent))] px-5 py-3 text-sm font-semibold text-[rgb(var(--accent-fg))] hover:opacity-95 sm:flex-1"
               >
                 View Apps <ArrowDown className="h-4 w-4" />
               </a>
 
               <Link
                 href="#contact"
-                className="ring-soft inline-flex items-center justify-center gap-2 rounded-2xl border border-app bg-app px-5 py-3 text-sm font-semibold text-[rgb(var(--text))] hover:opacity-90"
+                className="ring-soft inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-app bg-app px-5 py-3 text-sm font-semibold text-[rgb(var(--text))] hover:opacity-90 sm:flex-1"
               >
                 Contact <Mail className="h-4 w-4" />
               </Link>
             </div>
-
-            <p className="mt-6 text-xs text-muted">
-              This is a hub, not a funnel. Taste, clarity, execution.
-            </p>
           </div>
 
           <LochzillaMark />
