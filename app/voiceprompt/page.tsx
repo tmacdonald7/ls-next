@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 const quickStart = [
-  "Install Codex Voice Pad",
+  "Install Voice Prompt for Agents",
   "Connect to Codex (CLI or VS Code extension)",
   "Hold key to speak",
   "Optional: enable auto-submit",
@@ -46,15 +46,15 @@ const useCases = [
   "Ask for explanations instantly",
 ];
 
-const repoUrl = "https://github.com/tmacdonald7/codex-voice-pad";
+const repoUrl = "https://github.com/tmacdonald7/voiceprompt-for-agents";
 
 export const metadata: Metadata = {
-  title: "Codex Voice Pad | Lochside Studio",
+  title: "Voice Prompt | Lochside Studio",
   description:
-    "Typing is slow. Codex Voice Pad brings local voice capture and fast routing into Codex workflows inside VS Code.",
+    "Typing is slow. Voice Prompt brings local voice capture and fast routing into agent workflows inside VS Code.",
 };
 
-export default function CodexVoicePadPage() {
+export default function VoicePromptPage() {
   return (
     <main id="top" className="min-h-screen bg-app text-[rgb(var(--text))]">
       <div className="relative overflow-hidden">
@@ -89,9 +89,9 @@ export default function CodexVoicePadPage() {
               <div className="text-muted mt-5 max-w-[46rem]">
                 <p className="text-lg leading-8 sm:text-xl">
                   <strong className="font-semibold text-[rgb(var(--text))]">
-                    Codex Voice Pad
+                    Voice Prompt
                   </strong>{" "}
-                  enables voice input for Codex inside VS Code.
+                  enables voice input for agents inside VS Code.
                 </p>
                 <p className="mt-2 text-base leading-7 sm:text-lg">
                   Record locally, transcribe fast, and route to chat, the CLI,
@@ -117,7 +117,7 @@ export default function CodexVoicePadPage() {
                     Solution
                   </p>
                   <p className="mt-2 text-base leading-7 text-muted">
-                    Codex Voice Pad adds local voice capture, direct routing, and
+                    Voice Prompt adds local voice capture, direct routing, and
                     auto-submit so speaking can replace repetitive prompt typing.
                   </p>
                 </div>
@@ -130,7 +130,7 @@ export default function CodexVoicePadPage() {
                   rel="noreferrer"
                   className="ring-soft inline-flex min-w-56 items-center justify-center rounded-full bg-[rgb(var(--accent))] px-7 py-4 text-base font-semibold text-[rgb(var(--accent-fg))] shadow-soft transition hover:translate-y-[-1px] hover:opacity-95"
                 >
-                  Get the Codex Voice Pad Extension
+                  Get the Voice Prompt for Agents Extension
                 </a>
                 <a
                   href={repoUrl}
@@ -186,7 +186,7 @@ export default function CodexVoicePadPage() {
                   controls
                   preload="metadata"
                   playsInline
-                  poster="/logo/codex-voicepad.svg"
+                  poster="/logo/voiceprompt.svg"
                 >
                   <source src="/video/demo.mp4" type="video/mp4" />
                   Your browser does not support embedded video.
@@ -221,7 +221,7 @@ export default function CodexVoicePadPage() {
             </div>
             <div className="mt-5 overflow-hidden rounded-2xl border border-app bg-app">
               <div className="border-b border-app px-4 py-3 text-xs text-muted">
-                voicepad.runbook
+                voiceprompt.runbook
               </div>
               <ol className="space-y-3 px-4 py-5 font-mono text-sm">
                 {quickStart.map((step, index) => (
@@ -319,7 +319,7 @@ export default function CodexVoicePadPage() {
                 rel="noreferrer"
                 className="ring-soft inline-flex min-w-48 items-center justify-center rounded-full bg-[rgb(var(--accent))] px-6 py-3 text-sm font-semibold text-[rgb(var(--accent-fg))] transition hover:opacity-95"
               >
-                Get the Codex Voice Pad Extension
+                Get the Voice Prompt for Agents Extension
               </a>
               <a
                 href={repoUrl}

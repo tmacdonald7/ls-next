@@ -56,10 +56,10 @@ export const team: TeamMember[] = [
 
 export const apps: AppItem[] = [
   {
-    name: "Codex Voice Pad",
+    name: "Voice Prompt",
     description:
-      "Voice input for Codex in VS Code so you can speak prompts, skip the typing bottleneck, and keep moving.",
-    href: "/codex-voicepad",
+      "Voice input for agents in VS Code so you can speak prompts, skip the typing bottleneck, and keep moving.",
+    href: "/voiceprompt",
     badge: "Public Beta",
     available: true,
     ctaLabel: "View app",
