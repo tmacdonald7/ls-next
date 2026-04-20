@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 const quickStart = [
-  "Install Voice Prompt for Agents",
+  "Install VoicePrompt for Agents",
   "Connect to Codex (CLI or VS Code extension)",
   "Hold key to speak",
   "Optional: enable auto-submit",
@@ -49,9 +49,9 @@ const useCases = [
 const repoUrl = "https://github.com/tmacdonald7/voiceprompt-for-agents";
 
 export const metadata: Metadata = {
-  title: "Voice Prompt | Lochside Studio",
+  title: "VoicePrompt | Lochside Studio",
   description:
-    "Typing is slow. Voice Prompt brings local voice capture and fast routing into agent workflows inside VS Code.",
+    "Typing is slow. VoicePrompt brings local voice capture and fast routing into agent workflows inside VS Code.",
 };
 
 export default function VoicePromptPage() {
@@ -89,7 +89,7 @@ export default function VoicePromptPage() {
               <div className="text-muted mt-5 max-w-[46rem]">
                 <p className="text-lg leading-8 sm:text-xl">
                   <strong className="font-semibold text-[rgb(var(--text))]">
-                    Voice Prompt
+                    VoicePrompt
                   </strong>{" "}
                   enables voice input for agents inside VS Code.
                 </p>
@@ -117,7 +117,7 @@ export default function VoicePromptPage() {
                     Solution
                   </p>
                   <p className="mt-2 text-base leading-7 text-muted">
-                    Voice Prompt adds local voice capture, direct routing, and
+                    VoicePrompt adds local voice capture, direct routing, and
                     auto-submit so speaking can replace repetitive prompt typing.
                   </p>
                 </div>
@@ -130,7 +130,7 @@ export default function VoicePromptPage() {
                   rel="noreferrer"
                   className="ring-soft inline-flex min-w-56 items-center justify-center rounded-full bg-[rgb(var(--accent))] px-7 py-4 text-base font-semibold text-[rgb(var(--accent-fg))] shadow-soft transition hover:translate-y-[-1px] hover:opacity-95"
                 >
-                  Get the Voice Prompt for Agents Extension
+                  Get the VoicePrompt for Agents Extension
                 </a>
                 <a
                   href={repoUrl}
@@ -319,7 +319,7 @@ export default function VoicePromptPage() {
                 rel="noreferrer"
                 className="ring-soft inline-flex min-w-48 items-center justify-center rounded-full bg-[rgb(var(--accent))] px-6 py-3 text-sm font-semibold text-[rgb(var(--accent-fg))] transition hover:opacity-95"
               >
-                Get the Voice Prompt for Agents Extension
+                Get the VoicePrompt for Agents Extension
               </a>
               <a
                 href={repoUrl}

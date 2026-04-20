@@ -56,7 +56,7 @@ export const team: TeamMember[] = [
 
 export const apps: AppItem[] = [
   {
-    name: "Voice Prompt",
+    name: "VoicePrompt",
     description:
       "Voice input for agents in VS Code so you can speak prompts, skip the typing bottleneck, and keep moving.",
     href: "/voiceprompt",
