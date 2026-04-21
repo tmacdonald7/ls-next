@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { layout } from "@/lib/layout";
 import { ThemeToggle } from "./ThemeToggle";
 
 const NAV = [
@@ -43,7 +44,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-app bg-app/80 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <div className={`${layout.container} flex items-center justify-between py-3`}>
         <Link
           href={isHome ? "#top" : "/"}
           className="ring-soft rounded-lg px-2 py-1"
@@ -94,7 +95,7 @@ export function Header() {
 
         {/* Panel */}
         <div className="relative z-50 border-t border-app bg-app/95 backdrop-blur">
-          <div className="mx-auto max-w-6xl px-4 py-4">
+          <div className={`${layout.container} py-4`}>
             <div className="bg-surface shadow-soft rounded-2xl border border-app p-3">
               <div className="flex flex-col">
                 {NAV.map((n) => (

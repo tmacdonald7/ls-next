@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowDown, Mail } from "lucide-react";
 import Image from "next/image";
+import { layout } from "@/lib/layout";
 
 function LochzillaMark() {
   return (
@@ -79,7 +80,7 @@ function HeroFigure({
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
+      <div className={`${layout.container} py-16 sm:py-20`}>
         <div className="relative rounded-[2.5rem] border border-app bg-surface px-6 py-14 shadow-soft sm:px-10">
           <HeroFigure
             src="/hero/thomas2.webp"

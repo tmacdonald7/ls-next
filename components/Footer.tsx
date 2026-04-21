@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { apps } from "@/lib/data";
+import { layout } from "@/lib/layout";
 
 const SECTION_LINKS = [
   { href: "#about", label: "About" },
@@ -21,7 +22,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-app">
-      <div className="mx-auto max-w-6xl px-4 py-10">
+      <div className={`${layout.container} py-10`}>
         <div className="grid gap-8 md:grid-cols-[1.2fr_0.95fr_0.95fr] md:gap-10">
           <div>
             <Link href="/" className="ring-soft inline-block rounded-lg">

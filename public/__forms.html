@@ -28,5 +28,38 @@
       <input name="email" type="email" />
       <textarea name="message"></textarea>
     </form>
+
+    <form
+      name="voiceprompt-beta-access"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="voiceprompt-beta-access" />
+      <input name="bot-field" type="text" />
+      <input name="name" type="text" />
+      <input name="email" type="email" />
+      <input name="company_or_team" type="text" />
+      <input name="primary_setup" type="text" />
+      <textarea name="use_case"></textarea>
+    </form>
+
+    <form
+      name="voiceprompt-feedback"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="voiceprompt-feedback" />
+      <input name="bot-field" type="text" />
+      <input name="name" type="text" />
+      <input name="email" type="email" />
+      <input name="workflow" type="text" />
+      <textarea name="what_worked"></textarea>
+      <textarea name="what_broke"></textarea>
+      <textarea name="notes"></textarea>
+    </form>
   </body>
 </html>
