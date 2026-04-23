@@ -1,3 +1,13 @@
+# Lochside Studio Site
+
+This repo currently contains the Lochside Studio website and the `VoicePrompt` landing page.
+
+For the current launch planning notes for `VoicePrompt for Agents`, see [VOICEPROMPT_LAUNCH_PLAYBOOK.md](./VOICEPROMPT_LAUNCH_PLAYBOOK.md).
+
+The rest of this README is still the default Next.js scaffold and should be replaced when we turn this repo into proper project documentation.
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
