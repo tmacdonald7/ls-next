@@ -31,20 +31,20 @@ const quickStart = [
 
 const features = [
   {
-    title: "Skip the Prompt-Typing Bottleneck",
-    body: "Speak the instruction, correction, or follow-up immediately instead of slowing down to type every thought into chat or terminal.",
+    title: "Talk to the Agent, Not the Input Box",
+    body: "Say the prompt, correction, or follow-up out loud instead of breaking your flow to type every next instruction by hand.",
   },
   {
-    title: "Stay Inside the Work Surface",
-    body: "Route voice input straight into Codex, Copilot, the active terminal, or the editor so execution keeps moving where you already are.",
+    title: "Stay in Codex, Copilot, or Terminal Loops",
+    body: "Route transcripts straight into the surfaces where agent-driven work already happens instead of copying text between tools.",
   },
   {
-    title: "Move Faster Through Each Loop",
-    body: "Review, append, replace, auto-submit, or send approval keys from the panel instead of bouncing between windows and breaking concentration.",
+    title: "Keep the Loop Moving After You Speak",
+    body: "Review, append, replace, auto-submit, or send approval keys from the panel so the workflow keeps moving after capture.",
   },
   {
-    title: "Fit the Setup You Already Use",
-    body: "Use local capture, practical fallbacks, the OpenAI path, or your own command backend without rebuilding your workflow around a new tool.",
+    title: "Built for Real Developer Setups",
+    body: "Use local capture, practical fallbacks, OpenAI, or your own command backend without rebuilding your environment around a voice toy.",
   },
 ];
 
@@ -112,7 +112,21 @@ const workflowCards = [
   },
 ];
 
-const repoUrl = "https://github.com/tmacdonald7/voiceprompt-for-agents";
+const trustCards = [
+  {
+    title: "Local Capture First",
+    body: "VoicePrompt records locally when a native recorder is available and only falls back when the machine needs it.",
+  },
+  {
+    title: "Backend Choice Stays Yours",
+    body: "Use the OpenAI transcription path or point the extension at your own command-based backend.",
+  },
+  {
+    title: "Current Build, Clear Limits",
+    body: "This release is built for VS Code chat and terminal workflows first, with practical guardrails instead of fake perfection.",
+  },
+];
+
 const marketplaceUrl =
   "https://marketplace.visualstudio.com/items?itemName=tmacdonald7.voiceprompt-for-agents";
 
@@ -161,10 +175,15 @@ export default function VoicePromptPage() {
                 <strong className="font-semibold text-[rgb(var(--text))]">
                   VoicePrompt for Agents
                 </strong>{" "}
-                is a VS Code voice input workflow for developers who want local
-                recording, reliable transcription, and direct routing into chat,
-                terminal, or editor targets without typing every prompt by hand.
+                is the fastest way to get spoken prompts into Codex,
+                Copilot, and terminal workflows inside VS Code without turning
+                every next instruction into another typing task.
               </p>
+            </div>
+
+            <div className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
+              Built from real terminal-first and chat-first agent workflows,
+              not from a generic dictation brief.
             </div>
 
             <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-start">
@@ -239,13 +258,12 @@ export default function VoicePromptPage() {
 
             <div className="mt-12">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[rgb(var(--accent))]">
-                The Fastest and Most Efficient Way to Code
+                Why It Feels Faster
               </p>
               <div className="mt-3 max-w-3xl text-sm leading-7 text-muted sm:text-base">
-                VoicePrompt cuts friction out of AI coding workflows by letting
-                you speak instructions, route them directly into the surface
-                you are using, and keep moving without turning every next step
-                into another typing task.
+                The point is not voice for its own sake. The point is removing
+                the prompt-typing bottleneck in the parts of development where
+                you already think faster than you type.
               </div>
               <div className="mt-6 grid gap-4 md:grid-cols-2">
                 {features.map((feature) => (
@@ -363,33 +381,23 @@ export default function VoicePromptPage() {
             <div className="flex items-end justify-between gap-4">
               <div>
                 <p className="text-sm uppercase tracking-[0.32em] text-[rgb(var(--accent))]">
-                  Workflow Fit
+                  Trust and Limits
                 </p>
                 <h2 className={`mt-3 ${layout.h2}`}>
-                  Built around real VS Code agent work
+                  Clear enough to install, honest enough to trust
                 </h2>
               </div>
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-3">
-              {workflowCards.map((item) => (
+              {trustCards.map((item) => (
                 <article
                   key={item.title}
                   className="rounded-[1.5rem] border border-app bg-app p-5"
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-app bg-surface">
-                      <item.icon className="h-4 w-4 text-[rgb(var(--accent))]" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] uppercase tracking-[0.28em] text-[rgb(var(--accent))]">
-                        {item.eyebrow}
-                      </p>
-                      <h3 className="mt-1 text-lg font-semibold tracking-tight">
-                        {item.title}
-                      </h3>
-                    </div>
-                  </div>
+                  <h3 className="text-lg font-semibold tracking-tight">
+                    {item.title}
+                  </h3>
                   <p className="mt-4 text-sm leading-6 text-muted sm:text-base">
                     {item.body}
                   </p>
