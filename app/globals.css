@@ -93,6 +93,53 @@ body {
   border-color: rgb(var(--border));
 }
 
+.voiceprompt-dev {
+  --bg: 6 18 34;
+  --surface: 11 27 46;
+  --text: 248 247 244;
+  --muted: 171 180 197;
+  --border: 42 60 86;
+  --accent: 232 28 36;
+  --accent2: 255 255 255;
+  --accent3: 86 102 126;
+  --shadow: 0 18px 52px rgba(0, 0, 0, 0.34);
+  --ring: 0 0 0 4px rgba(232, 28, 36, 0.2);
+  --accent-fg: 255 255 255;
+}
+
+.voiceprompt-dev .vp-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.55;
+}
+
+.voiceprompt-dev .vp-streaks::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.28) 25%, transparent 60%),
+    linear-gradient(90deg, transparent 0%, rgba(232, 28, 36, 0.72) 35%, transparent 72%),
+    linear-gradient(90deg, transparent 0%, rgba(99, 112, 138, 0.5) 25%, transparent 68%);
+  background-size:
+    360px 2px,
+    280px 3px,
+    430px 2px;
+  background-position:
+    right 10% top 20%,
+    right -5% top 65%,
+    right 0% top 38%;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+}
+
 .shadow-soft {
   box-shadow: var(--shadow);
 }
