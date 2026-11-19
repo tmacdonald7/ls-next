@@ -53,7 +53,7 @@ export function VoicePromptForms() {
       const form = e.currentTarget;
       const formData = new FormData(form);
 
-      const res = await fetch("/__forms.html", {
+      const res = await fetch("/api/forms", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encodeForm(formData),
