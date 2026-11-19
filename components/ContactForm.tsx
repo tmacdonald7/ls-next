@@ -10,7 +10,7 @@ export function ContactForm() {
 
   const isBusy = status === "sending";
 
-  const actionUrl = useMemo(() => "/__forms.html", []);
+  const actionUrl = useMemo(() => "/api/forms", []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
